@@ -1,0 +1,98 @@
+(defvar eww "eww -c ~/.config/eww")
+(defwindow example
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0px"
+                               :width "100%"
+                               :height "33px"
+                               :anchor "bottom center")
+	   :exclusive true
+ (main))
+
+(defwindow menuwidget
+           :monitor 0
+           :geometry (geometry :x "1%"
+                               :y "10px"
+                               :width "415px"
+                               :height "400"
+                               :anchor "bottom left")
+  :exclusive true
+     (menu-main))
+
+(defwidget main[]
+  (box :class "bar"
+    (left)
+    (center)
+    (right)
+    (mem)))
+
+(defwidget left[]
+  (menu))
+
+(defwidget center[]
+  (ezz))
+
+(defwidget right[]
+  (workspaces))
+
+ (defwidget ezz[]
+  (eventbox :orientation "horizontal"
+       :halign "center"
+       :active true
+       :space-evenly false
+       :spacing 100
+       (label :class "time" :text " ${time} ")))
+
+(defwidget workspaces []
+(literal :content workspace
+  :halign "start"
+  :space-evenly false
+  :spacing 7
+  :width 0
+  :valign "center"))
+
+(defwidget mem[]
+  (box :orientation "horizontal"
+       :halign "center"
+       :space-evenly false
+       (label :class "meminfo" :text " ${ram}")))
+
+(defwidget menu[]
+  (button :onclick "/home/dezpair/.config/eww/menu.sh"
+    :onrightclick `headphones.sh`
+    :halign "start"
+    :width 10
+    (label :class "menu" :text "")))
+
+(defwidget menu-main[] 
+  (box
+  (picture)
+  (hello)))
+
+
+(defwidget picture[]
+   (image
+              :valign "center"
+              :halign "center"
+              :class "image"
+              :path vagabond
+              :image-width 100
+     ))
+
+(defwidget hello[]
+  (scale
+    :halign "center"
+    :onchange `pactl set-sink-volume bluez_sink.04_CB_88_C8_29_A0.a2dp_sink +10%`
+    :class "slider"
+    :min 0
+    :max 200
+    :value 10
+    ))
+
+(defvar vagabond "vagabond")
+(defpoll ram :interval "1s" `mem`)
+
+(defpoll time :interval "60s"
+  `date +%I:%M`)
+(defpoll date :interval "86400s" `date +%D`)
+(deflisten workspace 'workspace')

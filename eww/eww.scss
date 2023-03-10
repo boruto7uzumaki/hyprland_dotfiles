@@ -1,0 +1,98 @@
+* {
+  all : unset;
+}
+@keyframes gradient_f {
+	0% {
+		background-position: 0% 200%;
+	}
+    50% {
+        background-position: 200% 0%;
+    }
+	100% {
+		background-position: 400% 200%;
+	}
+}
+
+.example
+{
+	font-family: Iosevka , "Iosevka";
+	color: #c44d4d;
+	background: #0e0808;
+	animation-delay: 0s;
+	animation-fill-mode: forwards;
+	animation-duration: 10.0s;
+}
+
+.works {
+	font-weight:bold;
+	background: #1a0f0f;
+	padding: .2rem 2.0rem;
+	border-radius: 12px;
+	font-size: 17px;
+}
+
+
+
+/* Unoccupied */
+.0 {
+	color: #99321c;
+}
+
+/* Occupied */
+.01, .02, .03, .04, .05, .06, .07, .08, .09 {
+	color:#9a463b;
+}
+
+
+/* Focused */
+.011, .022, .033, .044, .055, .066, .077, .088, .099{
+	color: #d47060;
+	font-weight:bold;
+}
+
+.menu 
+{
+	margin-left: 10rem;
+	background-color : #1a0f0f;
+	border-radius: 12px;
+	font-weight:bold;
+	color: #99321c;
+	padding: .01rem 2.0rem;
+}
+
+.meminfo
+{
+	background-color : #1a0f0f;
+	border-radius : 12px;
+	padding: .1rem 2.0rem;
+	color:#8681d8;
+}
+
+.menuwidget
+{
+	background: #0e0707;
+	border-radius: 5px;
+	border: solid 2px #D8C4AD;
+}
+
+.time {
+
+	background-color : #1a0f0f;
+	border-radius : 12px;
+	padding: 0rem 2.0rem;
+	color: #76ae68;
+}
+.image
+{
+    border: solid 2px #D8C4AD;
+    border-radius:4px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.slider
+{
+	background-color: #D8C4AD;
+	color:#e67575;
+}
+
